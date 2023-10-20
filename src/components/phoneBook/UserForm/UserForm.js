@@ -1,4 +1,3 @@
-import * as yup from 'yup';
 import {
   FieldForm,
   ContactForm,
@@ -8,25 +7,12 @@ import {
   ErrMessage,
 } from './UserForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
-import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/contacts/operations';
+import { getContacts } from 'redux/contacts/selectors';
 import toast, { Toaster } from 'react-hot-toast';
+import { getCreateFormSchema } from 'redux/auth/validation';
 
-const schema = yup.object().shape({
-  name: yup
-    .string()
-    .matches(/^[a-zA-Zа-яА-Я\s'-]*$/, 'Name should not contain numbers')
-    .required(),
-  number: yup
-    .string()
-    .min(5, 'Too short  phone number')
-    .max(12, 'Too long phone number')
-    .matches(
-      /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
-      'Invalid phone number format'
-    )
-    .required(),
-});
+const schema = getCreateFormSchema();
 
 export const UserForm = () => {
   const contacts = useSelector(getContacts);
@@ -73,3 +59,5 @@ export const UserForm = () => {
     </div>
   );
 };
+
+export default UserForm;
