@@ -22,7 +22,7 @@ const Registration = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     const { name, email, password } = values;
-
+    console.log(values);
     if (userName) {
       toast.error(`Email with name ${name} already exists.`);
       resetForm();

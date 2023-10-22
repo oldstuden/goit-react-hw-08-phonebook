@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logIn, logOut, register, refreshUser } from './operations';
 
-const handlePending = state => (state.isLoading = true);
+const handlePending = state => {
+  state.isLoading = true;
+};
 
 const handleRejected = (state, action) => {
   state.isLoading = false;

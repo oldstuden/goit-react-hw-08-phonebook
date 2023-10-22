@@ -35,7 +35,7 @@ export const Header = styled.header`
 
 export const Nav = styled.nav`
   display: flex;
-  color: orange;
+  color: #333;
 `;
 
 export const HomeLink = styled.ul`

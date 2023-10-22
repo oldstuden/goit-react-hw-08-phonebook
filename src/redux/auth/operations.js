@@ -21,7 +21,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (user, thunkAPI) => {
     try {
-      const res = await axios.post('/users/signup', user);
+      const res = await axios.post('users/signup', user);
       // After successful registration, add the token to the HTTP header
       setAuthHeader(res.data.token);
       return res.data;
@@ -33,7 +33,7 @@ export const register = createAsyncThunk(
 
 export const logIn = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   try {
-    const res = await axios.post('/users/login', user);
+    const res = await axios.post('users/login', user);
     // After successful login, add the token to the HTTP header
     setAuthHeader(res.data.token);
     return res.data;
@@ -44,7 +44,7 @@ export const logIn = createAsyncThunk('auth/login', async (user, thunkAPI) => {
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('/users/logout');
+    await axios.post('users/logout');
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
@@ -65,7 +65,7 @@ export const refreshUser = createAsyncThunk(
     }
     setAuthHeader(persistedToken);
     try {
-      const res = await axios.get('/users/current');
+      const res = await axios.get('users/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

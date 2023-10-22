@@ -8,12 +8,15 @@ export const ContactForm = styled(Form)`
   border: 1px solid #000;
   border-radius: 12px;
   padding: 12px;
+  margin-top: 12px;
 `;
 export const FieldForm = styled(Field)`
   width: 80%;
   margin-top: 8px;
   display: flex;
   padding: 10px;
+  border: 1px solid #333;
+  border-radius: 8px;
 `;
 
 export const Wrap = styled(Formik)`

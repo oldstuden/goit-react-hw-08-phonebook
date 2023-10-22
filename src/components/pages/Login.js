@@ -16,9 +16,9 @@ const Login = () => {
   const dispatch = useDispatch();
   const loginSchema = getLoginSchema();
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     const { email, password } = values;
-    dispatch(logIn({ email, password }));
+    await dispatch(logIn({ email, password })).unwrap();
     toast.success(`Your account ${email} has been found, Login`);
     resetForm();
   };

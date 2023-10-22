@@ -11,14 +11,16 @@ export const UserPage = () => {
   return (
     <Container>
       <Topic>
-        Welcome <span>{userName}</span>
+        Welcome <span>{userName.name}</span>
       </Topic>
       <Button
         colorScheme="teal"
         variant="outline"
         type="button"
-        onClick={() => dispatch(logOut)}
-      ></Button>
+        onClick={() => dispatch(logOut())}
+      >
+        Logout
+      </Button>
     </Container>
   );
 };

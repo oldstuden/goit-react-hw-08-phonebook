@@ -8,4 +8,7 @@ export const Container = styled.div`
 
 export const Topic = styled.p`
   margin-right: 10px;
+  & span {
+    font-weight: bold;
+  }
 `;
